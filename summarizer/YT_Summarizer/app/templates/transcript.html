@@ -1,0 +1,133 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcript</title>
+</head>
+<style>
+    body{
+        background-image: url("https://images.unsplash.com/photo-1530305408560-82d13781b33a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-size: cover;
+        color: white;
+        text-align: center;
+    }
+    h1{
+        font-family: serif;
+    }
+    p{
+        font-size: 20px;
+    }
+</style>
+<body>
+    <h1>Summary</h1><br>
+    {% if transcript %}
+        <p>{{ transcript }}</p>
+    {% elif error %}
+        <p>Error: {{ error }}</p>
+    {% endif %}
+     <a href="{% url 'index' %}">Go Back</a> -->
+<!-- </body> -->
+<!-- </html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transcript and Similarity Score</title>
+    <style>
+        body {
+            background-image: url("https://images.unsplash.com/photo-1530305408560-82d13781b33a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-size: cover;
+        color: white;
+        text-align: center;
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0; */
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .transcript-box, .similarity-box, .summary-box, .transcriptlen-box, .summarylen-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .transcript-box h2, .similarity-box h2, .summary-box h2, .transcriptlen-box h2, .summarylen-box h2 {
+            margin-top: 0;
+            color: #007BFF;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            border: 1px solid #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #007BFF;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% if error %}
+            <div class="error">
+                <p>{{ error }}</p>
+            </div>
+        {% else %}
+            <div class="transcript-box">
+                <h2>Transcript</h2>
+                <p>{{ transcript }}</p>
+            </div>
+            <div class="transcriptlen-box">
+                <h2>Length of Transcript</h2>
+                <p>{{ len_transcript }}</p>
+            </div>
+            <div class="summary-box">
+                <h2>Summary</h2>
+                <p>{{ summary }}</p>
+            </div>
+            <div class="summarylen-box">
+                <h2>Length of Summary</h2>
+                <p>{{ len_summary }}</p>
+            </div>
+            <div class="similarity-box">
+                <h2>Similarity Score</h2>
+                <p>{{ similarity_score }}</p>
+            </div>
+        {% endif %}
+        <a href="{% url 'index' %}">Go Back</a>
+    </div>
+</body>
+</html>
+
